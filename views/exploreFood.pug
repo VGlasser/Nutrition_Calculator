@@ -1,23 +1,67 @@
 html(lang="en")
     head 
         title #{title}
+        script.
+            var foodList = !{JSON.stringify(foodList)};
+            var currentPage = 0;
+            const itemsPerPage = 10;
+
+            function displayPage(page) {
+                const tableBody = document.querySelector('#data-table tbody');
+                tableBody.innerHTML = ''; 
+                
+                const start = page * itemsPerPage;
+                const end = Math.min(start + itemsPerPage, Object.keys(foodList).length);
+                const pageItems = Object.entries(foodList).slice(start, end);
+
+                pageItems.forEach(entry => {
+                    const foodDetails = entry[1];
+                    const foodID = entry[0];
+
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${foodDetails.FoodName}</td>
+                        <td>
+                            <table>
+                                ${Object.entries(foodDetails.portions).map(([portion, value]) => `
+                                    <tr>
+                                        <td>${portion}</td>
+                                        <td>${value}</td>
+                                    </tr>
+                                `).join('')}
+                            </table>
+                        </td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                displayPage(currentPage); // Display the first page initially
+
+                document.getElementById('next-button').addEventListener('click', () => {
+                    if ((currentPage + 1) * itemsPerPage < Object.keys(foodList).length) {
+                        currentPage++;
+                        displayPage(currentPage);
+                    }
+                });
+
+                document.getElementById('prev-button').addEventListener('click', () => {
+                    if (currentPage > 0) {
+                        currentPage--;
+                        displayPage(currentPage);
+                    }
+                });
+            });
     body
         include ../partials/Header
         br
         div#main
-            p
-            //- each entry in Object.entries(foodList)            
-            //-     - let key = entry[0];
-            //-     - let value = entry[1];
-            //-     each portionEntry in Object.entries(value.portions)
-            //-         - let portion = portionEntry[0];
-            //-         b #{value.FoodName}, #{portion}
-            //-         br
-            //-         p 
-            //-         b 
-            //-         br
-            //-         button(onclick="addFood()") Add to daily total
-            //-         br
-            //-         br
-            //-         br
-    script(src=`/exploreFood.js`)
+            table#data-table
+                thead
+                    tr
+                        th Food Name
+                        th Portions
+                tbody
+            button#prev-button Prev
+            button#next-button Next
