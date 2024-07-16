@@ -1,0 +1,19 @@
+Monetize: 
+    * Get info on what foods people eat geographically and compare it to data on what stores and services are available then sell data
+
+Features:
+    * Compare to average diet (find out how to determine average diet)
+    * Ex. someone has 240% of the recomended nutrients relative to the average diet (North American maybe?)
+    * Graphic showing the percentile of users the user is for dietary fulfilment
+    * Figure out cookies and user security features
+    
+
+TO DO:
+    * Understand how AddFood retrieves data from the server
+    * Finish displaying database data to the screen
+    * Make smaller queries to retrieve data dynamically instead of copying all data to the system
+    * Calculations for nutrient totals vs recomended nutrients
+
+Extras:
+    * Start looking for free visuals (Or make my own)
+    * Maybe use AI art for simple button graphics?
