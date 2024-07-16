@@ -13,26 +13,21 @@ html(lang="en")
                 const start = page * itemsPerPage;
                 const end = Math.min(start + itemsPerPage, Object.keys(foodList).length);
                 const pageItems = Object.entries(foodList).slice(start, end);
-
-                pageItems.forEach(entry => {
-                    const foodDetails = entry[1];
-                    const foodID = entry[0];
-
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${foodDetails.FoodName}</td>
-                        <td>
-                            <table>
-                                ${Object.entries(foodDetails.portions).map(([portion, value]) => `
-                                    <tr>
-                                        <td>${portion}</td>
-                                        <td>${value}</td>
-                                    </tr>
-                                `).join('')}
-                            </table>
-                        </td>
-                    `;
-                    tableBody.appendChild(row);
+                console.log(pageItems);
+                console.log(pageItems[0][1].portions);
+                pageItems.forEach(food => {
+                        const foodDetails = food[1];
+                        const foodPortions = food[1].portions;
+                        for (let portion in foodPortions){
+                            const row = document.createElement('tr');
+                            row.innerHTML = `
+                                <td>${foodDetails.FoodName}</td>
+                                <td>
+                                    ${portion}
+                                </td>
+                            `;
+                            tableBody.appendChild(row);
+                    }
                 });
             }
 
