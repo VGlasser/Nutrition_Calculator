@@ -1,0 +1,131 @@
+html(lang="en")
+    head 
+        title #{title}
+    body
+        include ../partials/Header
+        br
+        div#main
+            h2 Custom Food 
+            //- a(href=`/account/${userAccount.Username}/followers`)
+            br
+            //- script.
+                //- var username = "#{userAccount.Username}";
+            p 
+                |Name:
+                input(id="Name", value="Test Food")
+                br
+                br
+                |Calories
+                input(id="Calories", value="0")
+                br
+                br
+                |Carbs:
+                input(id="Carbs", value="0")
+                br
+                br
+                |Fats:
+                input(id="Fats", value="0")
+                br
+                br
+                |Protein:
+                input(id="Protein", value="0")
+                br
+                br
+                |Fibre:
+                input(id="Fibre", value="0")
+                br
+                br
+                |Water:
+                input(id="Water", value="0")
+                br
+                br
+                |Vitamin A:
+                input(id="Vitamin A", value="0")
+                br
+                br
+                |Vitamin B6:
+                input(id="Vitamin B6", value="0")
+                br
+                br
+                |Vitamin B12:
+                input(id="Vitamin B12", value="0")
+                br
+                br
+                |Vitamin C:
+                input(id="Vitamin C", value="0")
+                br
+                br
+                |Vitamin D:
+                input(id="Vitamin D", value="0")
+                br
+                br
+                |Vitamin E:
+                input(id="Vitamin E", value="0")
+                br
+                br
+                |Vitamin K:
+                input(id="Vitamin K", value="0")
+                br
+                br
+                |Thiamine:
+                input(id="Thiamine", value="0")
+                br
+                br
+                |Riboflavin:
+                input(id="Riboflavin", value="0")
+                br
+                br
+                |Niacin:
+                input(id="Niacin", value="0")
+                br
+                br
+                |Pantothenic Acid:
+                input(id="Pantothenic Acid", value="0")
+                br
+                br
+                |Calcium:
+                input(id="Calcium", value="0")
+                br
+                br
+                |Copper:
+                input(id="Copper", value="0")
+                br
+                br
+                |Iron:
+                input(id="Iron", value="0")
+                br
+                br
+                |Magnesium:
+                input(id="Magnesium", value="0")
+                br
+                br
+                |Manganese:
+                input(id="Manganese", value="0")
+                br
+                br
+                |Phosphorus:
+                input(id="Phosphorus", value="0")
+                br
+                br
+                |Potassium:
+                input(id="Potassium", value="0")
+                br
+                br
+                |Selenium:
+                input(id="Selenium", value="0")
+                br
+                br
+                |Sodium:
+                input(id="Sodium", value="0")
+                br
+                br
+                |Salt:
+                input(id="Salt", value="0")
+                br
+                br
+                |Zinc:
+                input(id="Zinc", value="0")
+                br
+                br
+                button(onclick="addFood()") Add Food
+        script(src=`/customFood.js`)

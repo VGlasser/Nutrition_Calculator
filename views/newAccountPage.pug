@@ -1,0 +1,52 @@
+//- This model is based off of the calorie calculator created by omnicalculator. It can be found using the following hyperlink: https://www.omnicalculator.com/health/calorie
+html(lang="en")
+    head 
+        title #{title}
+    body
+        div#main
+            h1 Create your new account
+            p 
+                |Username: 
+                input(type="text", id="Username", placeholder="Type Name Here")
+                br
+                br
+                |Password: 
+                input(type="text", id="Password", placeholder="Type Password Here")
+                br
+                br
+                |Sex:  
+                select(id="Sex")
+                    option(value="female") Female
+                    option(value="male") Male 
+                br
+                br
+                |Height:  
+                input(type="text", id="Height") 
+                select(id="HeightUnits")
+                    option(value="Centimetres") centimetres 
+                    option(value="Metres") metres
+                    option(value="Inches") inches
+                br
+                br
+                |Weight:  
+                input(type="text", id="Weight") 
+                select(id="WeightUnits")
+                    option(value="Grams") grams
+                    option(value="Kilograms") kilograms
+                    option(value="Pounds") pounds
+                br
+                br
+                |Age:  
+                input(type="text", id="Age")
+                br
+                br
+                |Activity Level:  
+                select(id="Activity")
+                    option(value="Active_1") Sedentary lifestyle: no consistent exercise
+                    option(value="Active_2") Slightly active lifestyle: light excercise 1-2 days a week
+                    option(value="Active_3") Moderately active lifestyle: moderate exercise 2-3 days a week
+                    option(value="Active_4") Very active lifestyle: hard exercise 4-5 days a week
+                    option(value="Active_5") Extra active lifestyle: very hard exercise 6-7 days a week
+                    option(value="Active_6") Professional athlete
+            button(type="button", id="Submit", onclick="submit()") Submit
+        script(src="newAccountPage.js")

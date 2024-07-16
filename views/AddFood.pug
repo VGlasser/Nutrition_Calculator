@@ -1,0 +1,15 @@
+html(lang="en")
+    head 
+        title #{title}
+    body
+        include ../partials/Header
+        br
+        div#main
+            each entry in Object.entries(foodList)
+                - const [name, food] = entry                
+                p 
+                b #{name} 
+                button(onclick="addFood()") Add to daily total
+                br
+                br
+                br

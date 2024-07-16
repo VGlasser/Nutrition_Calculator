@@ -1,0 +1,18 @@
+html(lang="en")
+    head 
+        title #{title}
+    body
+        div#main
+            h1 Nutrient Calculator
+            p 
+                |Username: 
+                input(type="text", id="Username", placeholder="Insert Username Here")
+                br
+                br
+                |Password:  
+                input(type="text", id="Password", placeholder="Insert Password Here") 
+            button(type="button", id="Submit", onclick="verifyLogin()") Submit
+            br
+            br
+            a(href="/newAccountPage") Would you like to make a new account? Click here!
+        script(src="loginPage.js")
