@@ -210,11 +210,13 @@ fs.readdir("./data", function(err, files){
                           NutrientValue: row.nutrientValue,
                           NutrientUnit: row.NutrientUnit
                       };
-                      
+                    
                       if (foodData[FoodID]) {
+                         //if food data does not have any existing portions, add an object for portions
                           if (!foodData[FoodID].portions) {
                               foodData[FoodID].portions = {};
                           }
+                          //The FoodServingSize for a portion is the nutrientConversionFactor
                           foodData[FoodID].portions[FoodServingSize] = NutrientConversionFactor;
                           foodData[FoodID][NutrientName] = NutrientData;
                       } else {
