@@ -10,14 +10,15 @@ Features:
 
 TO DO:
     * Understand how AddFood retrieves data from the server
-    * Finish displaying database data to the screen
-    * Make smaller queries to retrieve data dynamically instead of copying all data to the system
     * Calculations for nutrient totals vs recomended nutrients
+    * EXPLORE FOOD:
+        Structure: One food name. Once food name is clicked, page for food portions opens.
+        Navigation: Filter by food name
+        Custom Portion: Once food selected, modify the measurement. Use formula: (New serving size/Original serving size)*ConversionFactorValue 
+        Efficiency: Retrieve 10 foods from the database at a time. Use GET request from server maybe??
+
 
 Extras:
     * Start looking for free visuals (Or make my own)
     * Maybe use AI art for simple button graphics?
 
-EXPLORE FOOD:
-Structure: One food name. Once food name is clicked, page for food portions opens.
-Custom Portion: Once food selected, modify the measurement. Use formula: (New serving size/Original serving size)*ConversionFactorValue 
