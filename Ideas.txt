@@ -17,3 +17,7 @@ TO DO:
 Extras:
     * Start looking for free visuals (Or make my own)
     * Maybe use AI art for simple button graphics?
+
+EXPLORE FOOD:
+Structure: One food name. Once food name is clicked, page for food portions opens.
+Custom Portion: Once food selected, modify the measurement. Use formula: (New serving size/Original serving size)*ConversionFactorValue 
