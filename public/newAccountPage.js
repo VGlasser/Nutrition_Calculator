@@ -445,7 +445,8 @@ function submit(){
     Sodium:1500,
     Salt:4100,
     Zinc:8,
-    SavedFoods:{}
+    SavedFoods:{},
+    FoodsPerPage:10
 	};
 
   postList = {data:[username,newUser]};
