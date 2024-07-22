@@ -168,10 +168,10 @@ fs.readdir("./data", function(err, files){
      //retrieves the .pug file for a user's login page
      app.get('/account/:name', (req,res)=>{
           let reqName = req.params.name;
-          let pugSend = dataList[1][reqName];
-          pugSend.Username = reqName;
+          let userAccount = dataList[1][reqName];
+          userAccount.Username = reqName;
           try{
-               res.render('AccountPage.pug',{Title: "AccountPage", userAccount:pugSend, root: __dirname});
+               res.render('AccountPage.pug',{Title: "AccountPage", userAccount:userAccount, root: __dirname});
           }
           catch(error){
                console.error('Error rendering template:', error);
@@ -181,8 +181,11 @@ fs.readdir("./data", function(err, files){
 
      app.get('/account/:name/exploreFood', (req, res) => {
           let reqName = req.params.name;
-          let pugSend = dataList[1][reqName];
-          pugSend.Username = reqName;
+          let userAccount = dataList[1][reqName];
+          userAccount.Username = reqName;
+
+          console.log(req.params.name);
+          console.log(userAccount);
 
           SQLConnection.query(
               `SELECT food_names.FoodID, food_names.FoodDescription, nutrient_name.NutrientName, nutrient_amount.nutrientValue, nutrient_name.NutrientUnit, measure_name.MeasureDescription, conversion_factor.ConversionFactorValue
@@ -226,7 +229,7 @@ fs.readdir("./data", function(err, files){
                       }
                   });
                   
-                  res.render('exploreFood', { userAccount:pugSend, title: 'Explore Food', foodList: foodData });
+                  res.render('exploreFood', { userAccount:userAccount, title: 'Explore Food', foodList: foodData });
               }
           );
       });
@@ -238,13 +241,13 @@ fs.readdir("./data", function(err, files){
      app.get('/account/:name/addFood', (req,res)=>{
           let reqName = req.params.name;
 
-          let pugSendUser = dataList[1][reqName];
-          pugSendUser.Username = reqName;
+          let userAccount = dataList[1][reqName];
+          userAccount.Username = reqName;
 
-          let pugSendArt = dataList[2];
+          let foodList = dataList[2];
           
           try{
-               res.render('addFood.pug',{userAccount:pugSendUser, foodList:pugSendArt, root: __dirname});
+               res.render('addFood.pug',{userAccount:userAccount, foodList:foodList, root: __dirname});
           }
           catch(error){
                console.error('Error rendering template:', error);
@@ -256,13 +259,13 @@ fs.readdir("./data", function(err, files){
      app.get('/account/:name/customFood',(req,res)=>{
           let reqName = req.params.name;
 
-          let pugSendUser = dataList[1][reqName];
-          pugSendUser.Username = reqName;
+          let userAccount = dataList[1][reqName];
+          userAccount.Username = reqName;
 
-          let pugSendArt = dataList[2];
+          let foodList = dataList[2];
           
           try{
-               res.render('customFood.pug',{userAccount:pugSendUser, foodList:pugSendArt, root: __dirname});
+               res.render('customFood.pug',{userAccount:userAccount, foodList:foodList, root: __dirname});
           }
           catch(error){
                console.error('Error rendering template:', error);
@@ -272,24 +275,22 @@ fs.readdir("./data", function(err, files){
      })
 
 
-     //retrieves the .pug file for browsing all images on the website filtered by category
-     app.get('/account/:name/addFood/category/:category', (req,res)=>{
-          let reqName = req.params.name;
-          let reqCategory = req.params.category;
+     // //retrieves the .pug file for browsing all images on the website filtered by category
+     // app.get('/account/:name/addFood/category/:category', (req,res)=>{
+     //      let reqName = req.params.name;
+     //      let reqCategory = req.params.category;
 
-          let pugSendUser = dataList[1][reqName];
-          pugSendUser.Username = reqName;
+     //      let userAccount = dataList[1][reqName];
+     //      userAccount.Username = reqName;
 
-          let pugSendArt = dataList[0];
-
-          try{
-               res.render('addFoodCategory.pug',{Title: "addFoodCategory", userAccount:pugSendUser, artList:pugSendArt, category:reqCategory, root: __dirname});
-          }
-          catch(error){
-               console.error('Error rendering template:', error);
-               res.status(500).send('Internal Server Error');
-          }     
-     });  
+     //      try{
+     //           res.render('addFoodCategory.pug',{Title: "addFoodCategory", userAccount:pugSendUser, category:reqCategory, root: __dirname});
+     //      }
+     //      catch(error){
+     //           console.error('Error rendering template:', error);
+     //           res.status(500).send('Internal Server Error');
+     //      }     
+     // });  
 
      //updates account status on server
      app.post('/account/:name/status',(req,res)=>{

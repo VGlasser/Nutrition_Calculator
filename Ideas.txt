@@ -14,7 +14,7 @@ TO DO:
     * EXPLORE FOOD:
         Structure: One food name. Once food name is clicked, page for food portions opens.
         Navigation: Filter by food name
-            Search button responds to chang in input
+            Search button responds to change in input
         Custom Portion: Once food selected, modify the measurement. Use formula: (New serving size/Original serving size)*ConversionFactorValue 
         Efficiency: Retrieve 10 foods from the database at a time. Use GET request from server maybe??
         Items per page: Parameter in user info for number of items per page
