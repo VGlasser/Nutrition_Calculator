@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     var currentPage = 0;
-    var itemsPerPage = 15;
+    var itemsPerPage = userAccount.FoodsPerPage;
 
     function displayPage(page) {
         const tableBody = document.querySelector('#data-table tbody');
@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         pageItems.forEach(food => {
             const foodDetails = food[1];
-            const foodPortions = food[1].portions;
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td>${foodDetails.FoodName}</td>

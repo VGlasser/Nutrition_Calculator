@@ -11,14 +11,15 @@ Features:
 TO DO:
     * Understand how AddFood retrieves data from the server
     * Calculations for nutrient totals vs recomended nutrients
+    *Get rid fo the list of JSON files. Make a big JSON file instead so it is scalable and flexible.
     * EXPLORE FOOD:
         Structure: One food name. Once food name is clicked, page for food portions opens.
-        Navigation: Filter by food name
-            Search button responds to change in input
+        Navigation: Search button responds to change in input
         Custom Portion: Once food selected, modify the measurement. Use formula: (New serving size/Original serving size)*ConversionFactorValue 
         Efficiency: Retrieve 10 foods from the database at a time. Use GET request from server maybe??
-        Items per page: Parameter in user info for number of items per page
-
+        Need to be able to access searchWord and pageNumber in client file. prev and next will be links to pages relative to current page
+    *SETTINGS
+        Items per page: Customize the number of items that will appear in the search
 
 Extras:
     * Start looking for free visuals (Or make my own)

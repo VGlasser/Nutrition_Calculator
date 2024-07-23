@@ -115,18 +115,28 @@ fs.readdir("./data", function(err, files){
 
      app.get('/account/:name/exploreFood', (req, res) => {
           let reqName = req.params.name;
-          let userAccount = dataList[1][reqName];
+          let userAccount = dataList[1][reqName];  
+          let pageNumber =  parseInt(req.query.pageNumber) || 1;
+          let searchWord = req.query.search !== 'undefined' ? req.query.search : '';
+          console.log(req.query);
           userAccount.Username = reqName;
 
-          console.log(req.params.name);
-          console.log(userAccount);
+          let itemsPerPage = userAccount.FoodsPerPage || 10;
+          let offset = (pageNumber - 1) * itemsPerPage;
+
+          console.log('req.query.search:',req.query.search);
+          console.log('Search Word:', searchWord); 
+          console.log('Page Number:', pageNumber); 
+          console.log('itemsPerPage', itemsPerPage);
 
           SQLConnection.query(
-              `
+               //I need to filter items first, then pick 10 or more for the page
+               `
                SELECT * 
                FROM food_nutrient_data
-               WHERE food_nutrient_data.id <= ${userAccount.FoodsPerPage};
-              `,
+               WHERE food_nutrient_data.FoodDescription LIKE ? 
+               `,
+               [`%${searchWord}%`],
               function(err, result) {
                   if (err) throw err;
                   
@@ -158,7 +168,7 @@ fs.readdir("./data", function(err, files){
                       }
                   });
                   
-                  res.render('exploreFood', { userAccount:userAccount, title: 'Explore Food', foodList: foodData });
+                  res.render('exploreFood', { userAccount:userAccount, searchWord:searchWord, pageNumber:pageNumber, title: 'Explore Food', foodList: foodData });
               }
           );
       });
