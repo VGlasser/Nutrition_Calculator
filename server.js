@@ -18,12 +18,14 @@ var SQLConnection = mysql.createConnection({
    
 fs.readdir("./data", function(err, files){
      
-     //creates the vendor list
-     let dataList = [];
-     for(let i=0; i<files.length; i++){
-          let data = require("./data/" + files[i]);
-          dataList.push(data);
-     }
+     //creates object to access stored data
+     let dataObject = {};
+     for(let i = 0; i < files.length; i++) {
+         let fileName = files[i];
+         let data = require("./data/" + fileName);
+         dataObject[fileName] = data;
+     }     
+     console.log(dataObject);
 
      //Responds with home page data if requested
      app.get("/", (req, res)=> {
@@ -54,7 +56,7 @@ fs.readdir("./data", function(err, files){
           let reqObject = req.body;
           let key = reqObject.data[0];
           let value = reqObject.data[1];
-		dataList[1][key] = value;
+		dataObject['1_userList.json'][key] = value;
 
           let userListFP = "./data/1_userList.json";
           let userListData = fs.readFileSync(userListFP, 'utf-8');
@@ -78,7 +80,7 @@ fs.readdir("./data", function(err, files){
           let key = reqObject.data.Name;
           let value = reqObject.data;
           delete value["Name"]
-		dataList[2][key] = value;
+		dataObject['2_foodList.json'][key] = value;
 
           console.log("Key: ",key);
           console.log("Value: ", value);
@@ -102,7 +104,7 @@ fs.readdir("./data", function(err, files){
      //retrieves the .pug file for a user's login page
      app.get('/account/:name', (req,res)=>{
           let reqName = req.params.name;
-          let userAccount = dataList[1][reqName];
+          let userAccount = dataObject['1_userList.json'][reqName];
           userAccount.Username = reqName;
           try{
                res.render('AccountPage.pug',{Title: "AccountPage", userAccount:userAccount, root: __dirname});
@@ -115,7 +117,7 @@ fs.readdir("./data", function(err, files){
 
      app.get('/account/:name/exploreFood', (req, res) => {
           let reqName = req.params.name;
-          let userAccount = dataList[1][reqName];  
+          let userAccount = dataObject['1_userList.json'][reqName];  
           let pageNumber =  parseInt(req.query.pageNumber) || 1;
           let searchWord = req.query.search !== 'undefined' ? req.query.search : '';
           console.log(req.query);
@@ -180,10 +182,10 @@ fs.readdir("./data", function(err, files){
      app.get('/account/:name/addFood', (req,res)=>{
           let reqName = req.params.name;
 
-          let userAccount = dataList[1][reqName];
+          let userAccount = dataObject['1_userList.json'][reqName];
           userAccount.Username = reqName;
 
-          let foodList = dataList[2];
+          let foodList = dataObject['2_foodList.json'];
           
           try{
                res.render('addFood.pug',{userAccount:userAccount, foodList:foodList, root: __dirname});
@@ -198,10 +200,10 @@ fs.readdir("./data", function(err, files){
      app.get('/account/:name/customFood',(req,res)=>{
           let reqName = req.params.name;
 
-          let userAccount = dataList[1][reqName];
+          let userAccount = dataObject['1_userList.json'][reqName];
           userAccount.Username = reqName;
 
-          let foodList = dataList[2];
+          let foodList = dataObject['2_foodList.json'];
           
           try{
                res.render('customFood.pug',{userAccount:userAccount, foodList:foodList, root: __dirname});
@@ -216,7 +218,7 @@ fs.readdir("./data", function(err, files){
      //updates account status on server
      app.post('/account/:name/status',(req,res)=>{
           let reqObject = req.body;
-          dataList[1][reqObject.Username].Status = reqObject.Status;
+          dataObject['1_userList.json'][reqObject.Username].Status = reqObject.Status;
 		res.set('Content-Type', 'text/plain')
 		res.status(200).send();
 	});
@@ -224,11 +226,11 @@ fs.readdir("./data", function(err, files){
 
      // retrieves the list of users from the server to be used by the client-side javascript.
      app.get('/userlist',(req,res)=>{
-          res.json(dataList[1]);
+          res.json(dataObject['1_userList.json']);
      });
 
      app.get('/foodlist',(req,res)=>{
-          res.json(dataList[2]);
+          res.json(dataObject['2_foodList.json']);
      });
 
 
