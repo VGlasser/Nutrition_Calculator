@@ -11,7 +11,6 @@ Features:
 TO DO:
     * Understand how AddFood retrieves data from the server
     * Calculations for nutrient totals vs recomended nutrients
-    *Get rid fo the list of JSON files. Make a big JSON file instead so it is scalable and flexible.
     * EXPLORE FOOD:
         Structure: One food name. Once food name is clicked, page for food portions opens.
         Navigation: Search button responds to change in input
