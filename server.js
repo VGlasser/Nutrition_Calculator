@@ -137,11 +137,15 @@ fs.readdir("./data", function(err, files){
                SELECT * 
                FROM food_nutrient_data
                WHERE food_nutrient_data.FoodDescription LIKE ? 
+               LIMIT ?
                `,
-               [`%${searchWord}%`],
+               [`%${searchWord}%`,itemsPerPage],
               function(err, result) {
                   if (err) throw err;
                   
+                  console.log('itemsPerPage:', itemsPerPage); // Verify itemsPerPage is correct
+                  console.log('Query Results Length:', result.length); // Check the number of results returned
+                  console.log('Query Results:', result); // Check the actual data returned
                   let foodData = {};
                   
                   result.forEach(row => {
