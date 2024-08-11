@@ -134,12 +134,19 @@ fs.readdir("./data", function(err, files){
           SQLConnection.query(
                //I need to filter items first, then pick 10 or more for the page
                `
-               SELECT * 
-               FROM food_nutrient_data
-               WHERE food_nutrient_data.FoodDescription LIKE ? 
-               LIMIT ?
+                    WITH FilteredValues AS (
+                         SELECT DISTINCT FoodDescription
+                         FROM food_nutrient_data
+                         WHERE FoodDescription LIKE ?
+                         ORDER BY FoodDescription
+                         LIMIT ? OFFSET ?
+                    )
+                    SELECT *
+                    FROM food_nutrient_data
+                    WHERE FoodDescription IN (SELECT FoodDescription FROM FilteredValues)
+                    ORDER BY FoodDescription;
                `,
-               [`%${searchWord}%`,itemsPerPage],
+               [`%${searchWord}%`,itemsPerPage, offset],
               function(err, result) {
                   if (err) throw err;
                   
