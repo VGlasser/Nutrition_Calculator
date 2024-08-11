@@ -6,6 +6,7 @@ Features:
     * Ex. someone has 240% of the recomended nutrients relative to the average diet (North American maybe?)
     * Graphic showing the percentile of users the user is for dietary fulfilment
     * Figure out cookies and user security features
+    CAN BE VEGETARIAN PROTIEN CALCULATOR FOR FOOD!!!
     
 
 TO DO:
@@ -13,7 +14,6 @@ TO DO:
     * Calculations for nutrient totals vs recomended nutrients
     * EXPLORE FOOD:
         Structure: One food name. Once food name is clicked, page for food portions opens.
-        Navigation: Search button responds to change in input
         Custom Portion: Once food selected, modify the measurement. Use formula: (New serving size/Original serving size)*ConversionFactorValue 
         Efficiency: Retrieve 10 foods from the database at a time. Use GET request from server maybe??
         Need to be able to access searchWord and pageNumber in client file. prev and next will be links to pages relative to current page
@@ -23,4 +23,4 @@ TO DO:
 Extras:
     * Start looking for free visuals (Or make my own)
     * Maybe use AI art for simple button graphics?
-
+    * Favicon for website

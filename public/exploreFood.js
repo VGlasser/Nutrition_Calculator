@@ -36,9 +36,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    document.getElementById('SearchBox').addEventListener('input', () => {
-        console.log(document.getElementById('SearchBox').value);
+    document.getElementById('SearchBox').addEventListener('keydown', (event) => {
+        if (event.key === 'Enter'){
+            filterSearch();
+        }
+    });
+
+    document.getElementById('EnterButton').addEventListener('click', () => {
+        filterSearch();
+    });
+
+    function filterSearch(){
+        const searchInput = document.getElementById('SearchBox').value
+        console.log(searchInput);
+        const updatedURL = `${window.location.pathname}?search=${encodeURIComponent(searchInput)}&page=${currentPage}`;
+        location.replace(updatedURL);
+        console.log(updatedURL)
         currentPage = 0; // Reset to the first page on new search
         displayPage(currentPage);
-    });
+    }
 });
+
+
