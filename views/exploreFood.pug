@@ -1,23 +1,19 @@
 html(lang="en")
     head 
         title #{title}
+        script(src="/exploreFood.js")
+        script.
+            var foodList = !{JSON.stringify(foodList)};
+            var userAccount = !{JSON.stringify(userAccount)};
     body
         include ../partials/Header
         br
-        div#main
+        div#main 
             p
-            //- each entry in Object.entries(foodList)            
-            //-     - let key = entry[0];
-            //-     - let value = entry[1];
-            //-     each portionEntry in Object.entries(value.portions)
-            //-         - let portion = portionEntry[0];
-            //-         b #{value.FoodName}, #{portion}
-            //-         br
-            //-         p 
-            //-         b 
-            //-         br
-            //-         button(onclick="addFood()") Add to daily total
-            //-         br
-            //-         br
-            //-         br
-    script(src=`/exploreFood.js`)
+                | Search 
+                input#SearchBox
+                button#EnterButton Enter
+            table#data-table
+                tbody
+            button#prev-button Prev
+            button#next-button Next

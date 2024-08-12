@@ -6,14 +6,25 @@ Features:
     * Ex. someone has 240% of the recomended nutrients relative to the average diet (North American maybe?)
     * Graphic showing the percentile of users the user is for dietary fulfilment
     * Figure out cookies and user security features
+    CAN BE VEGETARIAN PROTIEN CALCULATOR FOR FOOD!!!
     
 
 TO DO:
     * Understand how AddFood retrieves data from the server
-    * Finish displaying database data to the screen
-    * Make smaller queries to retrieve data dynamically instead of copying all data to the system
     * Calculations for nutrient totals vs recomended nutrients
+    * EXPLORE FOOD:
+        Structure: One food name. Once food name is clicked, page for food portions opens.
+        Custom Portion: Once food selected, modify the measurement. Use formula: (New serving size/Original serving size)*ConversionFactorValue 
+        Efficiency: Retrieve 10 foods from the database at a time. Use GET request from server maybe??
+        Need to be able to access searchWord and pageNumber in client file. prev and next will be links to pages relative to current page
+        Band-aid solution to fix undefined parameter bug no longer viable.
+        Issue moving between pages
+        Efficiency idea: Explore (make database of only food names, display this) -> Click on food name -> Food page (Uses food name to retrieve food info from database)
+        MAKE PAGE RETURN TO 0 WHEN CHANGING SEARCH
+    *SETTINGS
+        Items per page: Customize the number of items that will appear in the search
 
 Extras:
     * Start looking for free visuals (Or make my own)
     * Maybe use AI art for simple button graphics?
+    * Favicon for website
