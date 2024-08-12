@@ -17,6 +17,10 @@ TO DO:
         Custom Portion: Once food selected, modify the measurement. Use formula: (New serving size/Original serving size)*ConversionFactorValue 
         Efficiency: Retrieve 10 foods from the database at a time. Use GET request from server maybe??
         Need to be able to access searchWord and pageNumber in client file. prev and next will be links to pages relative to current page
+        Band-aid solution to fix undefined parameter bug no longer viable.
+        Issue moving between pages
+        Efficiency idea: Explore (make database of only food names, display this) -> Click on food name -> Food page (Uses food name to retrieve food info from database)
+        MAKE PAGE RETURN TO 0 WHEN CHANGING SEARCH
     *SETTINGS
         Items per page: Customize the number of items that will appear in the search
 

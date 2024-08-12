@@ -118,7 +118,7 @@ fs.readdir("./data", function(err, files){
      app.get('/account/:name/exploreFood', (req, res) => {
           let reqName = req.params.name;
           let userAccount = dataObject['userList.json'][reqName];  
-          let pageNumber =  parseInt(req.query.pageNumber) || 1;
+          let pageNumber =  parseInt(req.query.page) || 1;
           let searchWord = req.query.search !== 'undefined' ? req.query.search : '';
           console.log(req.query);
           userAccount.Username = reqName;
@@ -130,6 +130,8 @@ fs.readdir("./data", function(err, files){
           console.log('Search Word:', searchWord); 
           console.log('Page Number:', pageNumber); 
           console.log('itemsPerPage', itemsPerPage);
+          console.log('offset', offset);
+          console.log((pageNumber - 1) * itemsPerPage);
 
           SQLConnection.query(
                //I need to filter items first, then pick 10 or more for the page
@@ -150,9 +152,6 @@ fs.readdir("./data", function(err, files){
               function(err, result) {
                   if (err) throw err;
                   
-                  console.log('itemsPerPage:', itemsPerPage); // Verify itemsPerPage is correct
-                  console.log('Query Results Length:', result.length); // Check the number of results returned
-                  console.log('Query Results:', result); // Check the actual data returned
                   let foodData = {};
                   
                   result.forEach(row => {

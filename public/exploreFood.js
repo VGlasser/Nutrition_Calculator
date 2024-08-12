@@ -1,24 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
-    var currentPage = 0;
-    var itemsPerPage = userAccount.FoodsPerPage;
+    
+    const urlParameters = new URLSearchParams(window.location.search);
 
-    //ensures that neither parameter is undefined
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
+    // var currentPage = 0;
+    var currentPage = urlParameters.get('page')||0;
+     var itemsPerPage = userAccount.FoodsPerPage;
 
-    if (urlParams.get('search') == 'undefined'||urlParams.get('page') == 'undefined'){
-        const updatedURL = `${window.location.pathname}?search=&page=0`;
+    if (urlParameters.get('search') == 'undefined'||urlParameters.get('page') == 'undefined'){
+        const updatedURL = `${window.location.pathname}?search=&page=1`;
         location.replace(updatedURL);
     }
     
-
-    function displayPage(page) {
+    //NEEDS REWORK ASAP!!!
+    function displayPage() {
         const tableBody = document.querySelector('#data-table tbody');
         tableBody.innerHTML = ''; 
         
-        const start = page * itemsPerPage;
-        const end = Math.min(start + itemsPerPage, Object.keys(foodList).length);
-        const pageItems = Object.entries(foodList).slice(start, end);
+        const pageItems = Object.entries(foodList);
 
         pageItems.forEach(food => {
             const foodDetails = food[1];
@@ -30,20 +28,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    displayPage(currentPage);
+    displayPage();
 
     document.getElementById('next-button').addEventListener('click', () => {
-        if ((currentPage + 1) * itemsPerPage < Object.keys(foodList).length) {
-            currentPage++;
-            displayPage(currentPage);
-        }
+        currentPage++;
+        urlParameters.set('page', currentPage);
+        const updatedURL = `${window.location.pathname}?${urlParameters.toString()}`
+        console.log('success');
+        console.log(currentPage);
+        location.replace(updatedURL);
     });
 
     document.getElementById('prev-button').addEventListener('click', () => {
-        if (currentPage > 0) {
-            currentPage--;
-            displayPage(currentPage);
-        }
+        if(currentPage>1){
+            currentPage--;}
+        urlParameters.set('page', currentPage);
+        const updatedURL = `${window.location.pathname}?${urlParameters.toString()}`
+        console.log('success');
+        console.log(currentPage);
+        location.replace(updatedURL);
     });
 
     document.getElementById('SearchBox').addEventListener('keydown', (event) => {
@@ -58,12 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function filterSearch(){
         const searchInput = document.getElementById('SearchBox').value
-        console.log(searchInput);
+        currentPage = 0;
         const updatedURL = `${window.location.pathname}?search=${encodeURIComponent(searchInput)}&page=${currentPage}`;
         location.replace(updatedURL);
-        console.log(updatedURL)
-        currentPage = 0; // Reset to the first page on new search
-        displayPage(currentPage);
+        displayPage();
     }
 });
 
