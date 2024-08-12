@@ -103,6 +103,7 @@ fs.readdir("./data", function(err, files){
 
      //retrieves the .pug file for a user's login page
      app.get('/account/:name', (req,res)=>{
+          console.log("test2");
           let reqName = req.params.name;
           let userAccount = dataObject['userList.json'][reqName];
           userAccount.Username = reqName;
@@ -175,6 +176,15 @@ fs.readdir("./data", function(err, files){
           );
       });
       
+      //retrieves the .pug file containing all important information on a specific food and allows users to add to their daily consumption
+      app.get('/account/:name/foodInfo', (req, res) => {
+          console.log("test");
+          let reqName = req.params.name;
+          let userAccount = dataObject['userList.json'][reqName];
+          userAccount.Username = reqName;
+          res.render('foodInfo.pug', { userAccount:userAccount, title: 'Food Info'});
+          console.log("success");
+     });
       
 
 
