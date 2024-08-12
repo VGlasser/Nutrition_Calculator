@@ -11,18 +11,19 @@ document.addEventListener('DOMContentLoaded', () => {
         location.replace(updatedURL);
     }
     
-    //NEEDS REWORK ASAP!!!
+
     function displayPage() {
-        const tableBody = document.querySelector('#data-table tbody');
-        tableBody.innerHTML = ''; 
         
         const pageItems = Object.entries(foodList);
+        const tableBody = document.querySelector('#data-table tbody');
+        tableBody.innerHTML = ''; 
 
         pageItems.forEach(food => {
             const foodDetails = food[1];
+            const foodID = food[0];
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td>${foodDetails.FoodName}</td>
+                <td><a href="/account/food/?id=${foodID}">${foodDetails.FoodName}</a></td>
             `;
             tableBody.appendChild(row);
         });

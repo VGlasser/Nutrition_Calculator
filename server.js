@@ -120,21 +120,12 @@ fs.readdir("./data", function(err, files){
           let userAccount = dataObject['userList.json'][reqName];  
           let pageNumber =  parseInt(req.query.page) || 1;
           let searchWord = req.query.search !== 'undefined' ? req.query.search : '';
-          console.log(req.query);
           userAccount.Username = reqName;
 
           let itemsPerPage = userAccount.FoodsPerPage || 10;
           let offset = (pageNumber - 1) * itemsPerPage;
 
-          console.log('req.query.search:',req.query.search);
-          console.log('Search Word:', searchWord); 
-          console.log('Page Number:', pageNumber); 
-          console.log('itemsPerPage', itemsPerPage);
-          console.log('offset', offset);
-          console.log((pageNumber - 1) * itemsPerPage);
-
           SQLConnection.query(
-               //I need to filter items first, then pick 10 or more for the page
                `
                     WITH FilteredValues AS (
                          SELECT DISTINCT FoodDescription
@@ -179,7 +170,6 @@ fs.readdir("./data", function(err, files){
                           foodData[FoodID][NutrientName] = NutrientData;
                       }
                   });
-                  
                   res.render('exploreFood', { userAccount:userAccount, searchWord:searchWord, pageNumber:pageNumber, title: 'Explore Food', foodList: foodData });
               }
           );
