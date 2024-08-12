@@ -1,10 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     const urlParameters = new URLSearchParams(window.location.search);
-
-    // var currentPage = 0;
     var currentPage = urlParameters.get('page')||0;
-     var itemsPerPage = userAccount.FoodsPerPage;
+
 
     if (urlParameters.get('search') == 'undefined'||urlParameters.get('page') == 'undefined'){
         const updatedURL = `${window.location.pathname}?search=&page=1`;
@@ -13,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
 
     function displayPage() {
-        
+
         const pageItems = Object.entries(foodList);
         const tableBody = document.querySelector('#data-table tbody');
         tableBody.innerHTML = ''; 
@@ -23,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const foodID = food[0];
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td><a href="/account/food/?id=${foodID}">${foodDetails.FoodName}</a></td>
+                <td><a href="/account/${userAccount.Username}/foodInfo/?id=${foodID}">${foodDetails.FoodName}</a></td>
             `;
             tableBody.appendChild(row);
         });
