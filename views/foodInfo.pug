@@ -1,7 +1,12 @@
 html(lang="en")
     head 
         title #{title}
+        script(src="/exploreFood.js")
+        script.
+            var foodList = !{JSON.stringify(foodList)};
+            var userAccount = !{JSON.stringify(userAccount)};
     body
         div#main
-            h1 Food
-        script(src="loginPage.js")
+            h1#Name
+            p 
+        script(src="/foodInfo.js")

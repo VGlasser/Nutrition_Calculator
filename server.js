@@ -74,8 +74,6 @@ fs.readdir("./data", function(err, files){
 	});
 
      app.post('/food',(req,res)=>{
-          console.log("test")
-          console.log(req.body.data)
           let reqObject = req.body;
           let key = reqObject.data.Name;
           let value = reqObject.data;
@@ -103,7 +101,6 @@ fs.readdir("./data", function(err, files){
 
      //retrieves the .pug file for a user's login page
      app.get('/account/:name', (req,res)=>{
-          console.log("test2");
           let reqName = req.params.name;
           let userAccount = dataObject['userList.json'][reqName];
           userAccount.Username = reqName;
@@ -178,12 +175,55 @@ fs.readdir("./data", function(err, files){
       
       //retrieves the .pug file containing all important information on a specific food and allows users to add to their daily consumption
       app.get('/account/:name/foodInfo', (req, res) => {
-          console.log("test");
           let reqName = req.params.name;
           let userAccount = dataObject['userList.json'][reqName];
           userAccount.Username = reqName;
-          res.render('foodInfo.pug', { userAccount:userAccount, title: 'Food Info'});
-          console.log("success");
+
+          SQLConnection.query(
+               `
+                    WITH FilteredValues AS (
+                         SELECT DISTINCT FoodDescription
+                         FROM food_nutrient_data
+                         ORDER BY FoodDescription
+                    )
+                    SELECT *
+                    FROM food_nutrient_data
+                    WHERE FoodDescription IN (SELECT FoodDescription FROM FilteredValues)
+                    ORDER BY FoodDescription;
+               `,
+              function(err, result) {
+                  if (err) throw err;
+                  
+                  let foodData = {};
+                  
+                  result.forEach(row => {
+                      let FoodID = row.FoodID;
+                      let FoodName = row.FoodDescription;
+                      let FoodServingSize = row.MeasureDescription;
+                      let NutrientConversionFactor = row.ConversionFactorValue;
+                      let NutrientName = row.NutrientName;
+                      let NutrientData = {
+                          NutrientValue: row.nutrientValue,
+                          NutrientUnit: row.NutrientUnit
+                      };
+                    
+                      if (foodData[FoodID]) {
+                         //if food data does not have any existing portions, add an object for portions
+                          if (!foodData[FoodID].portions) {
+                              foodData[FoodID].portions = {};
+                          }
+                          //The FoodServingSize for a portion is the nutrientConversionFactor
+                          foodData[FoodID].portions[FoodServingSize] = NutrientConversionFactor;
+                          foodData[FoodID][NutrientName] = NutrientData;
+                      } else {
+                          foodData[FoodID] = { FoodName };
+                          foodData[FoodID].portions = { [FoodServingSize]: NutrientConversionFactor };
+                          foodData[FoodID][NutrientName] = NutrientData;
+                      }
+                  });
+                    res.render('foodInfo.pug', { userAccount:userAccount, title: 'Food Info', foodList: foodData});
+               }
+          );
      });
       
 
