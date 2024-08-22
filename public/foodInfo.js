@@ -240,163 +240,67 @@ function populateNutrientTable(){
         </tr>
         `
         }
-        if(food[`CALCIUM`]!=undefined){
+        if(food[`COPPER`]!=undefined){
             mineralRow.innerHTML += `
         <tr>
-            <td> Calcium:</td>
-            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
+            <td> Copper:</td>
+            <td> ${food[`COPPER`].NutrientValue}${food[`COPPER`].NutrientUnit}</td>
         </tr>
         `
         }
-        if(food[`CALCIUM`]!=undefined){
+        if(food[`IRON`]!=undefined){
             mineralRow.innerHTML += `
         <tr>
-            <td> Calcium:</td>
-            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
+            <td> Iron:</td>
+            <td> ${food[`IRON`].NutrientValue}${food[`IRON`].NutrientUnit}</td>
         </tr>
         `
         }
-        if(food[`CALCIUM`]!=undefined){
+        if(food[`MAGNESIUM`]!=undefined){
             mineralRow.innerHTML += `
         <tr>
-            <td> Calcium:</td>
-            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
+            <td> Magnesium:</td>
+            <td> ${food[`MAGNESIUM`].NutrientValue}${food[`MAGNESIUM`].NutrientUnit}</td>
         </tr>
         `
         }
-        if(food[`CALCIUM`]!=undefined){
+        if(food[`MANGANESE`]!=undefined){
             mineralRow.innerHTML += `
         <tr>
-            <td> Calcium:</td>
-            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
+            <td> Manganese:</td>
+            <td> ${food[`MANGANESE`].NutrientValue}${food[`MANGANESE`].NutrientUnit}</td>
         </tr>
         `
         }
-        if(food[`CALCIUM`]!=undefined){
+        if(food[`PHOSPHORUS`]!=undefined){
             mineralRow.innerHTML += `
         <tr>
-            <td> Calcium:</td>
-            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
+            <td> Phosphorus:</td>
+            <td> ${food[`PHOSPHORUS`].NutrientValue}${food[`PHOSPHORUS`].NutrientUnit}</td>
         </tr>
         `
         }
-        if(food[`CALCIUM`]!=undefined){
+        if(food[`POTASSIUM`]!=undefined){
             mineralRow.innerHTML += `
         <tr>
-            <td> Calcium:</td>
-            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
+            <td> Potassium:</td>
+            <td> ${food[`POTASSIUM`].NutrientValue}${food[`POTASSIUM`].NutrientUnit}</td>
         </tr>
         `
         }
-        if(food[`CALCIUM`]!=undefined){
+        if(food[`SELENIUM`]!=undefined){
             mineralRow.innerHTML += `
         <tr>
-            <td> Calcium:</td>
-            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
+            <td> Selenium:</td>
+            <td> ${food[`SELENIUM`].NutrientValue}${food[`SELENIUM`].NutrientUnit}</td>
         </tr>
         `
         }
-        if(food[`CALCIUM`]!=undefined){
+        if(food[`SODIUM`]!=undefined){
             mineralRow.innerHTML += `
         <tr>
-            <td> Calcium:</td>
-            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
-        </tr>
-        `
-        }
-        if(food[`CALCIUM`]!=undefined){
-            mineralRow.innerHTML += `
-        <tr>
-            <td> Calcium:</td>
-            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
-        </tr>
-        `
-        }
-        if(food[`CALCIUM`]!=undefined){
-            mineralRow.innerHTML += `
-        <tr>
-            <td> Calcium:</td>
-            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
-        </tr>
-        `
-        }
-        if(food[`CALCIUM`]!=undefined){
-            mineralRow.innerHTML += `
-        <tr>
-            <td> Calcium:</td>
-            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
-        </tr>
-        `
-        }
-        if(food[`CALCIUM`]!=undefined){
-            mineralRow.innerHTML += `
-        <tr>
-            <td> Calcium:</td>
-            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
-        </tr>
-        `
-        }
-        if(food[`CALCIUM`]!=undefined){
-            mineralRow.innerHTML += `
-        <tr>
-            <td> Calcium:</td>
-            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
-        </tr>
-        `
-        }
-        if(food[`CALCIUM`]!=undefined){
-            mineralRow.innerHTML += `
-        <tr>
-            <td> Calcium:</td>
-            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
-        </tr>
-        `
-        }
-        if(food[`CALCIUM`]!=undefined){
-            mineralRow.innerHTML += `
-        <tr>
-            <td> Calcium:</td>
-            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
-        </tr>
-        `
-        }
-        if(food[`CALCIUM`]!=undefined){
-            mineralRow.innerHTML += `
-        <tr>
-            <td> Calcium:</td>
-            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
-        </tr>
-        `
-        }
-        if(food[`CALCIUM`]!=undefined){
-            mineralRow.innerHTML += `
-        <tr>
-            <td> Calcium:</td>
-            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
-        </tr>
-        `
-        }
-        if(food[`CALCIUM`]!=undefined){
-            mineralRow.innerHTML += `
-        <tr>
-            <td> Calcium:</td>
-            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
-        </tr>
-        `
-        }
-        if(food[`CALCIUM`]!=undefined){
-            mineralRow.innerHTML += `
-        <tr>
-            <td> Calcium:</td>
-            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
-        </tr>
-        `
-        }
-        if(food[`CALCIUM`]!=undefined){
-            mineralRow.innerHTML += `
-        <tr>
-            <td> Calcium:</td>
-            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
+            <td> Sodium:</td>
+            <td> ${food[`SODIUM`].NutrientValue}${food[`SODIUM`].NutrientUnit}</td>
         </tr>
         `
         }
@@ -410,43 +314,5 @@ function populateNutrientTable(){
         }
 
 
-
-        mineralRow.innerHTML += `
-
-        <tr>
-            <td> Copper:</td>
-            <td> ${food[`COPPER`].NutrientValue}${food[`COPPER`].NutrientUnit}</td>
-        </tr>
-        <tr>
-            <td> Iron:</td>
-            <td> ${food[`IRON`].NutrientValue}${food[`IRON`].NutrientUnit}</td>
-        </tr>
-        <tr>
-            <td> Magnesium:</td>
-            <td> ${food[`MAGNESIUM`].NutrientValue}${food[`MAGNESIUM`].NutrientUnit}</td>
-        </tr>
-        <tr>
-            <td> MANGANESE:</td>
-            <td> ${food[`VITAMIN D (D2 + D3)`].NutrientValue}${food[`VITAMIN D (D2 + D3)`].NutrientUnit}</td>
-        </tr>
-        <tr>
-            <td> Phosphorus:</td>
-            <td> ${food[`PHOSPHORUS`].NutrientValue}${food[`PHOSPHORUS`].NutrientUnit}</td>
-        </tr>
-        <tr>
-            <td> Potassium:</td>
-            <td> ${food[`POTASSIUM`].NutrientValue}${food[`POTASSIUM`].NutrientUnit}</td>
-        </tr>
-        <tr>
-            <td> Selenium:</td>
-            <td> ${food[`SELENIUM`].NutrientValue}${food[`SELENIUM`].NutrientUnit}</td>
-        </tr>
-        <tr>
-            <td> Sodium:</td>
-            <td> ${food[`SODIUM`].NutrientValue}${food[`SODIUM`].NutrientUnit}</td>
-        </tr>
-
-        <tr>
-        `;
 }
 
