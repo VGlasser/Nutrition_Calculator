@@ -8,8 +8,6 @@ html(lang="en")
             var urlParameters = new URLSearchParams(window.location.search);
             var id = urlParameters.get('id')||0;
             var food = foodList[id];
-            var foodProtein = (food['PROTEIN'].NutrientValue);
-            console.log(foodProtein);
     body
         include ../partials/Header
         div#main
@@ -48,6 +46,10 @@ html(lang="en")
                 table#Minerals
             h3 Portions:
             p#PortionTable
+            p
+                button(onclick="addToDailyTotal()")#addButton Add to my daily total 
+            p
+                button(onclick="removeFromDailyTotal()")#removeButton Remove from my daily total 
             p#SuccessMessages
         script(src="/foodInfo.js")
         script.
