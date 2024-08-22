@@ -443,7 +443,6 @@ function submit(){
     Potassium:4700,
     Selenium:55,
     Sodium:1500,
-    Salt:4100,
     Zinc:8,
     SavedFoods:{},
     FoodsPerPage:10

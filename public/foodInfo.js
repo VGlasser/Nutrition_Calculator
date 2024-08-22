@@ -58,7 +58,7 @@ function addToDailyTotal(){
 //NOT ALL FOODS HAVE ENTRIES FOR EACH NUTRIENT!!
 function populateNutrientTable(){
     const macroRow = document.getElementById('Macros');
-        if(food[`ENERGY (KILOCALORIES)`].NutrientValue!=undefined){
+        if(food[`ENERGY (KILOCALORIES)`]!=undefined){
             macroRow.innerHTML += `
         <tr>
             <td> Calories:</td>
@@ -66,7 +66,7 @@ function populateNutrientTable(){
         </tr>`
         }
 
-        if(food[`CARBOHYDRATE, TOTAL (BY DIFFERENCE)`].NutrientValue!=undefined){
+        if(food[`CARBOHYDRATE, TOTAL (BY DIFFERENCE)`]!=undefined){
             macroRow.innerHTML += `
         <tr>
             <td> Carbs:</td>
@@ -74,7 +74,7 @@ function populateNutrientTable(){
         </tr>`
         }
 
-        if(food[`FAT (TOTAL LIPIDS)`].NutrientValue!=undefined){
+        if(food[`FAT (TOTAL LIPIDS)`]!=undefined){
             macroRow.innerHTML += `
         <tr>
             <td> Fats:</td>
@@ -82,7 +82,7 @@ function populateNutrientTable(){
         </tr>`
         }
 
-        if(food[`PROTEIN`].NutrientValue!=undefined){
+        if(food[`PROTEIN`]!=undefined){
             macroRow.innerHTML += `
         <tr>
             <td> Protein:</td>
@@ -90,7 +90,7 @@ function populateNutrientTable(){
         </tr>`
         }
 
-        if(food[`FIBRE, TOTAL DIETARY`].NutrientValue!=undefined){
+        if(food[`FIBRE, TOTAL DIETARY`]!=undefined){
             macroRow.innerHTML += `
         <tr>
             <td> Fibre:</td>
@@ -98,7 +98,7 @@ function populateNutrientTable(){
         </tr>`
         }
 
-        if(food[`MOISTURE`].NutrientValue!=undefined){
+        if(food[`MOISTURE`]!=undefined){
             macroRow.innerHTML += `
         <tr>
             <td> Water:</td>
@@ -108,75 +108,311 @@ function populateNutrientTable(){
         }
 
 
-        console.log(food[`ALPHA-TOCOPHEROL`]==undefined);
-
         const vitaminRow = document.getElementById('Vitamins');
-        vitaminRow.innerHTML = 
-        `
+
+        if(food[`RETINOL`]!=undefined){
+        vitaminRow.innerHTML += `
         <tr>
             <td> Vitamin A:</td>
             <td> ${food[`RETINOL`].NutrientValue}${food[`RETINOL`].NutrientUnit}</td>
         </tr>
+        `
+        }
+
+        if(food[`VITAMIN B-6`]!=undefined){
+            vitaminRow.innerHTML += `
         <tr>
             <td> Vitamin B6:</td>
             <td> ${food[`VITAMIN B-6`].NutrientValue}${food[`VITAMIN B-6`].NutrientUnit}</td>
         </tr>
+        `
+        }
+
+        if(food[`VITAMIN B-12`]!=undefined){
+            vitaminRow.innerHTML += `
         <tr>
             <td> Vitamin B12:</td>
             <td> ${food[`VITAMIN B-12`].NutrientValue}${food[`VITAMIN B-12`].NutrientUnit}</td>
         </tr>
+        `
+        }
+
+        if(food[`VITAMIN C`]!=undefined){
+            vitaminRow.innerHTML += `
         <tr>
-            <td> VITAMIN C:</td>
-            <td> ${food[`ENERGY (KILOCALORIES)`].NutrientValue}${food[`ENERGY (KILOCALORIES)`].NutrientUnit}</td>
+            <td> Vitamin C:</td>
+            <td> ${food[`VITAMIN C`].NutrientValue}${food[`VITAMIN C`].NutrientUnit}</td>
         </tr>
+        `
+        }
+
+        if(food[[`VITAMIN D (D2 + D3)`]]!=undefined){
+            vitaminRow.innerHTML += `
         <tr>
             <td> Vitamin D:</td>
             <td> ${food[`VITAMIN D (D2 + D3)`].NutrientValue}${food[`VITAMIN D (D2 + D3)`].NutrientUnit}</td>
         </tr>
+        `
+        }
+
+        if(food[`ALPHA-TOCOPHEROL`]!=undefined){
+            vitaminRow.innerHTML += `
         <tr>
             <td> Vitamin E:</td>
             <td> ${food[`ALPHA-TOCOPHEROL`].NutrientValue}${food[`ALPHA-TOCOPHEROL`].NutrientUnit}</td>
         </tr>
+        `
+        }
+
+        if(food[`VITAMIN K`]!=undefined){
+            vitaminRow.innerHTML += `
         <tr>
             <td> Vitamin K:</td>
             <td> ${food[`VITAMIN K`].NutrientValue}${food[`VITAMIN K`].NutrientUnit}</td>
         </tr>
+        `
+        }
+        if(food[`THIAMIN`]!=undefined){
+            vitaminRow.innerHTML += `
         <tr>
             <td> Thiamin:</td>
             <td> ${food[`THIAMIN`].NutrientValue}${food[`THIAMIN`].NutrientUnit}</td>
         </tr>
+        `
+        }
+        if(food[`RIBOFLAVIN`]!=undefined){
+            vitaminRow.innerHTML += `
         <tr>
             <td> Riboflavin:</td>
             <td> ${food[`RIBOFLAVIN`].NutrientValue}${food[`RIBOFLAVIN`].NutrientUnit}</td>
         </tr>
+        `
+        }
+        if(food[`NIACIN (NICOTINIC ACID) PREFORMED`]!=undefined){
+            vitaminRow.innerHTML += `
         <tr>
             <td> Niacin:</td>
             <td> ${food[`NIACIN (NICOTINIC ACID) PREFORMED`].NutrientValue}${food[`NIACIN (NICOTINIC ACID) PREFORMED`].NutrientUnit}</td>
         </tr>
+        `
+        }
+        if(food[`FOLIC ACID`]!=undefined){
+            vitaminRow.innerHTML += `
         <tr>
             <td> Folate:</td>
             <td> ${food[`FOLIC ACID`].NutrientValue+food[`NATURALLY OCCURRING FOLATE`].NutrientValue}${food[`FOLIC ACID`].NutrientUnit}</td>
         </tr>
+        `
+        }
+        if(food[`PANTOTHENIC ACID`]!=undefined){
+            vitaminRow.innerHTML += `
         <tr>
             <td> Pantothenic Acid:</td>
             <td> ${food[`PANTOTHENIC ACID`].NutrientValue}${food[`PANTOTHENIC ACID`].NutrientUnit}</td>
         </tr>
+        `
+        }
+        if(food[`BIOTIN`]!=undefined){
+            vitaminRow.innerHTML += `
         <tr>
-            <td> BIOTIN:</td>
-            <td> ${food[`ENERGY (KILOCALORIES)`].NutrientValue}${food[`ENERGY (KILOCALORIES)`].NutrientUnit}</td>
+            <td> Biotin:</td>
+            <td> ${food[`BIOTIN`].NutrientValue}${food[`BIOTIN`].NutrientUnit}</td>
         </tr>
+        `
+        }
+        if(food[`CHOLINE, TOTAL`]!=undefined){
+            vitaminRow.innerHTML += `
         <tr>
-            <td> CHOLINE:</td>
-            <td> ${food[`ENERGY (KILOCALORIES)`].NutrientValue}${food[`ENERGY (KILOCALORIES)`].NutrientUnit}</td>
+            <td> Choline:</td>
+            <td> ${food[`CHOLINE, TOTAL`].NutrientValue}${food[`CHOLINE, TOTAL`].NutrientUnit}</td>
         </tr>
-        `;
+        `
+        }
+
 
         const mineralRow = document.getElementById('Minerals');
-        mineralRow.innerHTML = `
+
+        if(food[`CALCIUM`]!=undefined){
+            mineralRow.innerHTML += `
         <tr>
             <td> Calcium:</td>
             <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
         </tr>
+        `
+        }
+        if(food[`CALCIUM`]!=undefined){
+            mineralRow.innerHTML += `
+        <tr>
+            <td> Calcium:</td>
+            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
+        </tr>
+        `
+        }
+        if(food[`CALCIUM`]!=undefined){
+            mineralRow.innerHTML += `
+        <tr>
+            <td> Calcium:</td>
+            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
+        </tr>
+        `
+        }
+        if(food[`CALCIUM`]!=undefined){
+            mineralRow.innerHTML += `
+        <tr>
+            <td> Calcium:</td>
+            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
+        </tr>
+        `
+        }
+        if(food[`CALCIUM`]!=undefined){
+            mineralRow.innerHTML += `
+        <tr>
+            <td> Calcium:</td>
+            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
+        </tr>
+        `
+        }
+        if(food[`CALCIUM`]!=undefined){
+            mineralRow.innerHTML += `
+        <tr>
+            <td> Calcium:</td>
+            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
+        </tr>
+        `
+        }
+        if(food[`CALCIUM`]!=undefined){
+            mineralRow.innerHTML += `
+        <tr>
+            <td> Calcium:</td>
+            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
+        </tr>
+        `
+        }
+        if(food[`CALCIUM`]!=undefined){
+            mineralRow.innerHTML += `
+        <tr>
+            <td> Calcium:</td>
+            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
+        </tr>
+        `
+        }
+        if(food[`CALCIUM`]!=undefined){
+            mineralRow.innerHTML += `
+        <tr>
+            <td> Calcium:</td>
+            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
+        </tr>
+        `
+        }
+        if(food[`CALCIUM`]!=undefined){
+            mineralRow.innerHTML += `
+        <tr>
+            <td> Calcium:</td>
+            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
+        </tr>
+        `
+        }
+        if(food[`CALCIUM`]!=undefined){
+            mineralRow.innerHTML += `
+        <tr>
+            <td> Calcium:</td>
+            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
+        </tr>
+        `
+        }
+        if(food[`CALCIUM`]!=undefined){
+            mineralRow.innerHTML += `
+        <tr>
+            <td> Calcium:</td>
+            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
+        </tr>
+        `
+        }
+        if(food[`CALCIUM`]!=undefined){
+            mineralRow.innerHTML += `
+        <tr>
+            <td> Calcium:</td>
+            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
+        </tr>
+        `
+        }
+        if(food[`CALCIUM`]!=undefined){
+            mineralRow.innerHTML += `
+        <tr>
+            <td> Calcium:</td>
+            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
+        </tr>
+        `
+        }
+        if(food[`CALCIUM`]!=undefined){
+            mineralRow.innerHTML += `
+        <tr>
+            <td> Calcium:</td>
+            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
+        </tr>
+        `
+        }
+        if(food[`CALCIUM`]!=undefined){
+            mineralRow.innerHTML += `
+        <tr>
+            <td> Calcium:</td>
+            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
+        </tr>
+        `
+        }
+        if(food[`CALCIUM`]!=undefined){
+            mineralRow.innerHTML += `
+        <tr>
+            <td> Calcium:</td>
+            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
+        </tr>
+        `
+        }
+        if(food[`CALCIUM`]!=undefined){
+            mineralRow.innerHTML += `
+        <tr>
+            <td> Calcium:</td>
+            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
+        </tr>
+        `
+        }
+        if(food[`CALCIUM`]!=undefined){
+            mineralRow.innerHTML += `
+        <tr>
+            <td> Calcium:</td>
+            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
+        </tr>
+        `
+        }
+        if(food[`CALCIUM`]!=undefined){
+            mineralRow.innerHTML += `
+        <tr>
+            <td> Calcium:</td>
+            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
+        </tr>
+        `
+        }
+        if(food[`CALCIUM`]!=undefined){
+            mineralRow.innerHTML += `
+        <tr>
+            <td> Calcium:</td>
+            <td> ${food[`CALCIUM`].NutrientValue}${food[`CALCIUM`].NutrientUnit}</td>
+        </tr>
+        `
+        }
+        if(food[`ZINC`]!=undefined){
+            mineralRow.innerHTML += `
+        <tr>
+            <td> Zinc:</td>
+            <td> ${food[`ZINC`].NutrientValue+food[`ZINC`].NutrientValue}${food[`FOLIC ACID`].NutrientUnit}</td>
+        </tr>
+        `
+        }
+
+
+
+        mineralRow.innerHTML += `
+
         <tr>
             <td> Copper:</td>
             <td> ${food[`COPPER`].NutrientValue}${food[`COPPER`].NutrientUnit}</td>
@@ -209,14 +445,7 @@ function populateNutrientTable(){
             <td> Sodium:</td>
             <td> ${food[`SODIUM`].NutrientValue}${food[`SODIUM`].NutrientUnit}</td>
         </tr>
-        <tr>
-            <td> SALT:</td>
-            <td> ${food[`NIACIN (NICOTINIC ACID) PREFORMED`].NutrientValue}${food[`NIACIN (NICOTINIC ACID) PREFORMED`].NutrientUnit}</td>
-        </tr>
-        <tr>
-            <td> Zinc:</td>
-            <td> ${food[`ZINC`].NutrientValue+food[`ZINC`].NutrientValue}${food[`FOLIC ACID`].NutrientUnit}</td>
-        </tr>
+
         <tr>
         `;
 }

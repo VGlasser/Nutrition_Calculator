@@ -12,15 +12,12 @@ Features:
 TO DO:
     * Understand how AddFood retrieves data from the server
     * Calculations for nutrient totals vs recomended nutrients
+        Removed salt as nutrient since database does not include it!!!
     * EXPLORE FOOD:
-        Structure: One food name. Once food name is clicked, page for food portions opens.
         Custom Portion: Once food selected, modify the measurement. Use formula: (New serving size/Original serving size)*ConversionFactorValue 
         Efficiency: Retrieve 10 foods from the database at a time. Use GET request from server maybe??
-        Need to be able to access searchWord and pageNumber in client file. prev and next will be links to pages relative to current page
         Band-aid solution to fix undefined parameter bug no longer viable.
-        Issue moving between pages
         Efficiency idea: Explore (make database of only food names, display this) -> Click on food name -> Food page (Uses food name to retrieve food info from database)
-        MAKE PAGE RETURN TO 0 WHEN CHANGING SEARCH
     *SETTINGS
         Items per page: Customize the number of items that will appear in the search
 
