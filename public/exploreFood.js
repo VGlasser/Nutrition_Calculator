@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const pageItems = Object.entries(foodList);
         const tableBody = document.querySelector('#data-table tbody');
-        tableBody.innerHTML = ''; 
+        // tableBody.innerHTML = ''; 
 
         pageItems.forEach(food => {
             const foodDetails = food[1];

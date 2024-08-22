@@ -70,7 +70,6 @@ function addFood(){
   let potassium =  document.getElementById("Potassium").value;
   let selenium =  document.getElementById("Selenium").value;
   let sodium =  document.getElementById("Sodium").value;
-  let salt =  document.getElementById("Salt").value;
   let zinc =  document.getElementById("Zinc").value;
 
   if(foodList.hasOwnProperty(name)){
@@ -80,7 +79,7 @@ function addFood(){
 
   if(name===""|| calories===""|| carbs===""|| fats===""|| protein===""|| fibre===""|| water===""|| vitaminA===""|| vitaminB6===""|| vitaminB12===""|| vitaminC===""||
    vitaminD===""|| vitaminE===""|| vitaminK===""|| thiamine===""|| riboflavin===""|| niacin===""|| pantothenicAcid===""|| calcium===""|| copper===""|| iron===""||
-   magnesium===""|| manganese===""|| phosphorus===""|| potassium===""|| selenium===""|| sodium===""|| salt===""|| zinc===""){
+   magnesium===""|| manganese===""|| phosphorus===""|| potassium===""|| selenium===""|| sodium===""|| zinc===""){
 		alert("You must fill all fields to add food. Please try again.")
 		return;
 	}
@@ -113,7 +112,6 @@ function addFood(){
     Potassium:potassium,
     Selenium:selenium,
     Sodium:sodium,
-    Salt:salt,
     Zinc:zinc
 	};
 

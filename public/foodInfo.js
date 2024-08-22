@@ -24,13 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
             tableBody.appendChild(row);
         }
 
-        const buttonRow = document.createElement('tr');
-        buttonRow.innerHTML = `
-        <td>
-            <button onclick="addToDailyTotal()">Add to my daily total</button>
-        </td>`;
-        tableBody.appendChild(buttonRow);
-
         populateNutrientTable()
         
     }
@@ -47,7 +40,7 @@ function addToDailyTotal(){
         const successMessageRow = document.createElement('tr');
         successMessageRow.innerHTML = `
         <td>
-            successfully added ${portionValue} to daily total
+            Successfully added ${portionValue} to daily total (WIP)
         </td>`;
         successMessages.appendChild(successMessageRow);
     } else {
@@ -55,7 +48,24 @@ function addToDailyTotal(){
     }
 }
 
-//NOT ALL FOODS HAVE ENTRIES FOR EACH NUTRIENT!!
+function removeFromDailyTotal(){
+    const selectedPortion = document.querySelector('input[name="portion"]:checked');
+    const successMessages = document.getElementById('SuccessMessages');
+    
+    if (selectedPortion) {
+        const portionValue = selectedPortion.value;
+        const successMessageRow = document.createElement('tr');
+        successMessageRow.innerHTML = `
+        <td>
+            Successfully removed ${portionValue} from daily total (WIP)
+        </td>`;
+        successMessages.appendChild(successMessageRow);
+    } else {
+        alert('No portion selected');
+    }
+}
+
+
 function populateNutrientTable(){
     const macroRow = document.getElementById('Macros');
         if(food[`ENERGY (KILOCALORIES)`]!=undefined){
