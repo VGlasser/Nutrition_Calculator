@@ -1,6 +1,10 @@
 html(lang="en")
     head 
         title #{title}
+        script(src="/AccountPage.js")
+        script.
+          var userAccount = !{JSON.stringify(userAccount)};
+            
     body
         include ../partials/Header
         br
@@ -38,129 +42,133 @@ button.collapsible(type='button') Macro Nutrients
     tr
         td Calories:
         td #{userAccount.CurrCalories} / #{userAccount.Calories} kCal
-        td [#{userAccount.CurrCalories/userAccount.Calories}%]
+        td [#{(userAccount.CurrCalories/userAccount.Calories*100).toFixed(2)}%]
     tr
         td Carbs:
         td #{userAccount.CurrCarbs} / #{userAccount.Carbs} g
-        td [#{userAccount.CurrCarbs/userAccount.Carbs}%]
+        td [#{(userAccount.CurrCarbs/userAccount.Carbs*100).toFixed(2)}%]
     tr
         td Fats:
         td #{userAccount.CurrFats} / #{userAccount.Fats} g
-        td [#{userAccount.CurrFats/userAccount.Fats}%]
+        td [#{(userAccount.CurrFats/userAccount.Fats*100).toFixed(2)}%]
     tr
         td Protein:
         td #{userAccount.CurrProtein} / #{userAccount.Protein} g
-        td [#{userAccount.CurrProtein/userAccount.Protein}%]
+        td [#{(userAccount.CurrProtein/userAccount.Protein*100).toFixed(2)}%]
     tr
         td Fibre:
         td #{userAccount.CurrFibre} / #{userAccount.Fibre} g
-        td [#{userAccount.CurrFibre/userAccount.Fibre}%]
+        td [#{(userAccount.CurrFibre/userAccount.Fibre*100).toFixed(2)}%]
     tr
         td Water:
         td #{userAccount.CurrWater} / #{userAccount.Water} L
-        td [#{userAccount.CurrWater/userAccount.Water}%]
+        td [#{(userAccount.CurrWater/userAccount.Water*100).toFixed(2)}%]
 button.collapsible(type='button') Vitamins
 .content
   table
     tr
       td Vitamin A:
       td #{userAccount.CurrVitaminA} / #{userAccount.VitaminA} g
-      td [#{userAccount.CurrVitaminA/userAccount.VitaminA}%]
+      td [#{(userAccount.CurrVitaminA/userAccount.VitaminA*100).toFixed(2)}%]
     tr
       td Vitamin B6:
       td #{userAccount.CurrVitaminB6} / #{userAccount.VitaminB6} mg
-      td [#{userAccount.CurrVitaminB6/userAccount.VitaminB6}%]
+      td [#{(userAccount.CurrVitaminB6/userAccount.VitaminB6*100).toFixed(2)}%]
     tr
       td Vitamin B12:
       td #{userAccount.CurrVitaminB12} / #{userAccount.VitaminB12} mg
-      td [#{userAccount.CurrVitaminB12/userAccount.VitaminB12}%]
+      td [#{(userAccount.CurrVitaminB12/userAccount.VitaminB12*100).toFixed(2)}%]
     tr
       td Vitamin C:
       td #{userAccount.CurrVitaminC} / #{userAccount.VitaminC} mg
-      td [#{userAccount.CurrVitaminC/userAccount.VitaminC}%]
+      td [#{(userAccount.CurrVitaminC/userAccount.VitaminC*100).toFixed(2)}%]
     tr
       td Vitamin D:
       td #{userAccount.CurrVitaminD} / #{userAccount.VitaminD} mcg
-      td [#{userAccount.CurrVitaminD/userAccount.VitaminD}%]
+      td [#{(userAccount.CurrVitaminD/userAccount.VitaminD*100).toFixed(2)}%]
     tr
       td Vitamin E:
       td #{userAccount.CurrVitaminE} / #{userAccount.VitaminE} mg
-      td [#{userAccount.CurrVitaminE/userAccount.VitaminE}%]    
+      td [#{(userAccount.CurrVitaminE/userAccount.VitaminE*100).toFixed(2)}%]   
     tr
       td Vitamin K:
       td #{userAccount.CurrVitaminK} / #{userAccount.VitaminK} mcg
-      td [#{userAccount.CurrVitaminK/userAccount.VitaminK}%]
+      td [#{(userAccount.CurrVitaminK/userAccount.VitaminK*100).toFixed(2)}%]
     tr
       td Thiamine:
       td #{userAccount.CurrThiamine} / #{userAccount.Thiamine} mg
-      td [#{userAccount.CurrThiamine/userAccount.Thiamine}%]    
+      td [#{(userAccount.CurrThiamine/userAccount.Thiamine*100).toFixed(2)}%]   
     tr
       td Riboflavin:
       td #{userAccount.CurrRiboflavin} / #{userAccount.Riboflavin} mg
-      td [#{userAccount.CurrRiboflavin/userAccount.Riboflavin}%]  
+      td [#{(userAccount.CurrRiboflavin/userAccount.Riboflavin*100).toFixed(2)}%]  
     tr
       td Niacin:
       td #{userAccount.CurrNiacin} / #{userAccount.Niacin} mg
-      td [#{userAccount.CurrNiacin/userAccount.Niacin}%] 
+      td [#{(userAccount.CurrNiacin/userAccount.Niacin*100).toFixed(2)}%] 
     tr
       td Folate:
       td #{userAccount.CurrFolate} / #{userAccount.Folate} mg
-      td [#{userAccount.CurrFolate/userAccount.Folate}%] 
+      td [#{(userAccount.CurrFolate/userAccount.Folate*100).toFixed(2)}%] 
     tr
       td Pantothenic Acid:
       td #{userAccount.CurrPantothenicAcid} / #{userAccount.PantothenicAcid} mg
-      td [#{userAccount.CurrPantothenicAcid/userAccount.PantothenicAcid}%] 
+      td [#{(userAccount.CurrPantothenicAcid/userAccount.PantothenicAcid*100).toFixed(2)}%] 
     tr
       td Biotin:
       td #{userAccount.CurrBiotin} / #{userAccount.Biotin} mcg
-      td [#{userAccount.CurrBiotin/userAccount.Biotin}%] 
+      td [#{(userAccount.CurrBiotin/userAccount.Biotin*100).toFixed(2)}%] 
     tr
       td Choline:
       td #{userAccount.CurrCholine} / #{userAccount.Choline} mg
-      td [#{userAccount.CurrCholine/userAccount.Choline}%] 
+      td [#{(userAccount.CurrCholine/userAccount.Choline*100).toFixed(2)}%] 
 button.collapsible(type='button') Minerals
 .content
   table
       tr
         td Calcium:
         td #{userAccount.CurrCalcium} / #{userAccount.Calcium} mg
-        td [#{userAccount.CurrCalcium/userAccount.Calcium}%] 
+        td [#{(userAccount.CurrCalcium/userAccount.Calcium*100).toFixed(2)}%] 
       tr
         td Copper:
         td #{userAccount.CurrCopper} / #{userAccount.Copper} mg
-        td [#{userAccount.CurrCopper/userAccount.Copper}%] 
+        td [#{(userAccount.CurrCopper/userAccount.Copper*100).toFixed(2)}%]
       tr
         td Iron:
         td #{userAccount.CurrIron} / #{userAccount.Iron} mg
-        td [#{userAccount.CurrIron/userAccount.Iron}%] 
+        td [#{(userAccount.CurrIron/userAccount.Iron*100).toFixed(2)}%] 
       tr
         td Magnesium:
         td #{userAccount.CurrMagnesium} / #{userAccount.Magnesium} mg
-        td [#{userAccount.CurrMagnesium/userAccount.Magnesium}%] 
+        td [#{(userAccount.CurrMagnesium/userAccount.Magnesium*100).toFixed(2)}%]
       tr
         td Manganese:
         td #{userAccount.CurrManganese} / #{userAccount.Manganese} mg
-        td [#{userAccount.CurrManganese/userAccount.Manganese}%] 
+        td [#{(userAccount.CurrManganese/userAccount.Manganese*100).toFixed(2)}%]
       tr
         td Phosphorus:
         td #{userAccount.CurrPhosphorus} / #{userAccount.Phosphorus} mg
-        td [#{userAccount.CurrPhosphorus/userAccount.Phosphorus}%] 
+        td [#{(userAccount.CurrPhosphorus/userAccount.Phosphorus*100).toFixed(2)}%]
       tr
         td Potassium:
         td #{userAccount.CurrPotassium} / #{userAccount.Potassium} mg
-        td [#{userAccount.CurrPotassium/userAccount.Potassium}%] 
+        td [#{(userAccount.CurrPotassium/userAccount.Potassium*100).toFixed(2)}%] 
       tr
         td Selenium:
         td #{userAccount.CurrSelenium} / #{userAccount.Selenium} mcg
-        td [#{userAccount.CurrSelenium/userAccount.Selenium}%] 
+        td [#{(userAccount.CurrSelenium/userAccount.Selenium*100).toFixed(2)}%] 
       tr
         td Sodium:
         td #{userAccount.CurrSodium} / #{userAccount.Sodium} g
-        td [#{userAccount.CurrSodium/userAccount.Sodium}%] 
+        td [#{(userAccount.CurrSodium/userAccount.Sodium*100).toFixed(2)}%]
       tr
         td Zinc:
         td #{userAccount.CurrZinc} / #{userAccount.Zinc} mg
-        td [#{userAccount.CurrZinc/userAccount.Zinc}%] 
+        td [#{(userAccount.CurrZinc/userAccount.Zinc*100).toFixed(2)}%]
+p
+  button(onclick="clearDailyTotal()")#clearButton Clear All Food
+
+
 script.
   
   var coll = document.getElementsByClassName("collapsible");
