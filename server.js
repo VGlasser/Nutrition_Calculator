@@ -98,9 +98,25 @@ fs.readdir("./data", function(err, files){
 		res.status(200).send();
 	});
 
-     // app.post('/foodInfo/add',(req,res)=>{
-     //      console.log(req.body);
-     // });
+     app.post('/foodInfo/add',(req,res)=>{
+          let NutrientList = req.body;
+
+          let userListFilePath = "./data/userList.json";
+          let userListData = fs.readFileSync(userListFilePath, 'utf-8');
+          let userListObject = JSON.parse(userListData);
+          let userData = userListObject[NutrientList.Username];
+          
+          let addingValues = true;
+          userData = updateNutrients(addingValues, NutrientList, userData);
+
+          userListObject[NutrientList.Username] = userData
+          
+          let updatedJsonData = JSON.stringify(userListObject, null, 2);
+
+          fs.writeFileSync(userListFilePath, updatedJsonData, 'utf-8');
+
+
+     });
 
 
      //retrieves the .pug file for a user's login page
@@ -290,6 +306,27 @@ fs.readdir("./data", function(err, files){
 
 
 });
+
+function updateNutrients(adding, NutrientList, userData){
+     let positivity = 1;
+     if(!adding){
+          positivity = -1;
+     }
+     for (let key in NutrientList) {
+          if (userData.hasOwnProperty(key)&&key!='Username') {
+               userData[key] += parseFloat(NutrientList[key])*positivity;
+               userData[key] = parseFloat(userData[key].toFixed(2));
+          } 
+     }
+     if (userData.SavedFoods.hasOwnProperty(NutrientList.FoodID)){
+          userData.SavedFoods[NutrientList.FoodID]++;
+     }
+     else{
+          userData.SavedFoods[NutrientList.FoodID]=1;
+     }
+     console.log(userData)
+     return(userData);
+}
 
 app.listen(3000);
 console.log("Server listening at http://localhost:3000");

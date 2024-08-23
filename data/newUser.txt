@@ -1,4 +1,3 @@
-{
   "U1": {
     "Username": "U1",
     "Password": "U1",
@@ -65,4 +64,3 @@
     "SavedFoods": {},
     "FoodsPerPage": 10
   }
-}
