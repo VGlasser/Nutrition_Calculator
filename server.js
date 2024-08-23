@@ -25,7 +25,7 @@ fs.readdir("./data", function(err, files){
          let data = require("./data/" + fileName);
          dataObject[fileName] = data;
      }     
-     console.log(dataObject);
+     // console.log(dataObject);
 
      //Responds with home page data if requested
      app.get("/", (req, res)=> {
@@ -80,8 +80,8 @@ fs.readdir("./data", function(err, files){
           delete value["Name"]
 		dataObject['foodList.json'][key] = value;
 
-          console.log("Key: ",key);
-          console.log("Value: ", value);
+          // console.log("Key: ",key);
+          // console.log("Value: ", value);
 
 
           let foodListFP = "./data/foodList.json";
@@ -97,6 +97,10 @@ fs.readdir("./data", function(err, files){
 		res.set('Content-Type', 'text/plain')
 		res.status(200).send();
 	});
+
+     // app.post('/foodInfo/add',(req,res)=>{
+     //      console.log(req.body);
+     // });
 
 
      //retrieves the .pug file for a user's login page
@@ -178,6 +182,7 @@ fs.readdir("./data", function(err, files){
           let reqName = req.params.name;
           let userAccount = dataObject['userList.json'][reqName];
           userAccount.Username = reqName;
+          console.log(dataObject['userList.json'][reqName]);
 
           SQLConnection.query(
                `
